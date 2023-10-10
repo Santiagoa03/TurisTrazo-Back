@@ -12,6 +12,7 @@ import lombok.Data;
 public class TipoUsuario {
 
     @Id
+    @Column(name = "id")
     private Integer id;
 
     @Column(name = "tipo_usuario")

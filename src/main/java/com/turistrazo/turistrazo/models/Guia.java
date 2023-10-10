@@ -2,7 +2,10 @@ package com.turistrazo.turistrazo.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -20,13 +23,21 @@ public class Guia {
     @Column(name = "barrio_residencia")
     private String barrioResidencia;
 
-    @Column(name = "barrio_guia")
+    @JoinColumn(name = "barrio_guia", referencedColumnName = "codigo_postal", updatable = false, insertable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     private BarrioMedellin barrioGuia;
+
+    @Column(name = "barrio_guia")
+    private Integer idBarrioGuia;
 
     @Column(name = "ingles")
     private Boolean ingles;
 
-    @Column(name = "usuario")
+    @JoinColumn(name = "usuario", referencedColumnName = "numero_identidad", updatable = false, insertable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Usuario usuario;
+
+    @Column(name = "usuario")
+    private Integer idUsuario;
 
 }

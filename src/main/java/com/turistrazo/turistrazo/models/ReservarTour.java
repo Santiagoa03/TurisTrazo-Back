@@ -4,7 +4,10 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -16,11 +19,19 @@ public class ReservarTour {
     @Id
     private Integer id;
 
-    @Column(name = "tour")
+    @JoinColumn(name = "tour", referencedColumnName = "id", updatable = false, insertable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Tour tour;
 
-    @Column(name = "turista")
+    @Column(name = "tour")
+    private Integer idTour;
+
+    @JoinColumn(name = "turista", referencedColumnName = "numero_identidad", updatable = false, insertable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Usuario turista;
+
+    @Column(name = "turista")
+    private Integer idTurista;
 
     @Column(name = "fecha")
     private LocalDateTime fecha;
