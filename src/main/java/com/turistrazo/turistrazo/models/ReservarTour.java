@@ -19,19 +19,13 @@ public class ReservarTour {
     @Id
     private Integer id;
 
-    @JoinColumn(name = "tour", referencedColumnName = "id", updatable = false, insertable = false)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tour")
+    @ManyToOne
     private Tour tour;
 
-    @Column(name = "tour")
-    private Integer idTour;
-
-    @JoinColumn(name = "turista", referencedColumnName = "numero_identidad", updatable = false, insertable = false)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "turista")
+    @ManyToOne
     private Usuario turista;
-
-    @Column(name = "turista")
-    private Integer idTurista;
 
     @Column(name = "fecha")
     private LocalDateTime fecha;
