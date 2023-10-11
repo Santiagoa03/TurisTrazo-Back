@@ -23,21 +23,14 @@ public class Guia {
     @Column(name = "barrio_residencia")
     private String barrioResidencia;
 
-    @JoinColumn(name = "barrio_guia", referencedColumnName = "codigo_postal", updatable = false, insertable = false)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "barrio_guia")
+    @ManyToOne
     private BarrioMedellin barrioGuia;
-
-    @Column(name = "barrio_guia")
-    private Integer idBarrioGuia;
 
     @Column(name = "ingles")
     private Boolean ingles;
 
-    @JoinColumn(name = "usuario", referencedColumnName = "numero_identidad", updatable = false, insertable = false)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario")
+    @ManyToOne
     private Usuario usuario;
-
-    @Column(name = "usuario")
-    private Integer idUsuario;
-
 }

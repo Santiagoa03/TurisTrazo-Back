@@ -3,6 +3,7 @@ package com.turistrazo.turistrazo.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,4 +22,9 @@ public class UsuarioController {
         return usuarioService.getUserProfile(userId);
     }
 
+    @PostMapping("/save")
+    public Usuario postSave() {
+        System.out.println("Entró");
+        return usuarioService.postSave();
+    }
 }

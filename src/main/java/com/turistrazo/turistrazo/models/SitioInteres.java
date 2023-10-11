@@ -20,12 +20,9 @@ public class SitioInteres {
     @Column(name = "nombre_sitio")
     private String tour;
 
-    @JoinColumn(name = "barrio_medellin", referencedColumnName = "codigo_postal", updatable = false, insertable = false)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "barrio_medellin")
+    @ManyToOne
     private BarrioMedellin barrioMedellin;
-
-    @Column(name = "barrio_medellin")
-    private Integer idBarrioMedellin;
 
     @Column(name = "descripcion")
     private String descripcion;

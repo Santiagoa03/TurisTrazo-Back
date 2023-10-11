@@ -17,19 +17,13 @@ public class ResenaCalificacion {
     @Id
     private Integer id;
 
-    @JoinColumn(name = "guia", referencedColumnName = "numero_identidad", updatable = false, insertable = false)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "guia")
+    @ManyToOne
     private Usuario guia;
 
-    @Column(name = "guia")
-    private Integer idGuia;
-
-    @JoinColumn(name = "barrio_guia", referencedColumnName = "codigo_postal", updatable = false, insertable = false)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "barrio_guia")
+    @ManyToOne
     private BarrioMedellin barrioGuia;
-
-    @Column(name = "barrio_guia")
-    private Integer idBarrioGuia;
 
     @Column(name = "descripcion")
     private String descripcion;

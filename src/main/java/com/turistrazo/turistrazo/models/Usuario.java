@@ -33,11 +33,8 @@ public class Usuario {
     @Column(name = "contraseña")
     private String contraseña;
 
-    @JoinColumn(name = "id_tipo_usuario", referencedColumnName = "id", table = "tipo_usuario", updatable = false, insertable = false)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_tipo_usuario")
+    @ManyToOne
     private TipoUsuario tipoUsuario;
-
-    @Column(name = "id_tipo_usuario")
-    private Integer idTipoUsuario;
 
 }
