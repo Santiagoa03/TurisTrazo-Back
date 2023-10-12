@@ -21,4 +21,5 @@ public class TourController {
     public List<Tour> getAllTour() {
         return tourService.getAll();
     }
+
 }
