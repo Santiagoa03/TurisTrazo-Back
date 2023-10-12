@@ -22,7 +22,10 @@ public class Tour {
 
     @JoinColumn(name = "guia")
     @ManyToOne
-    private Usuario guia;
+    private Guia guia;
+
+    @Column(name = "nombre")
+    private String nombre;
 
     @Column(name = "descripcion")
     private String descripcion;
