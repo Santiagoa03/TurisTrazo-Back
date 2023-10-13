@@ -1,5 +1,7 @@
 package com.turistrazo.turistrazo.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -29,8 +31,9 @@ public class Usuario {
     @Column(name = "celular")
     private String celular;
 
-    @Column(name = "contraseña")
-    private String contraseña;
+    @Column(name = "contrasena")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private String contrasena;
 
     @JoinColumn(name = "id_tipo_usuario")
     @ManyToOne
