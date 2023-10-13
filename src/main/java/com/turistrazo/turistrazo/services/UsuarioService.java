@@ -1,6 +1,9 @@
 package com.turistrazo.turistrazo.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.turistrazo.turistrazo.models.TipoUsuario;
@@ -17,18 +20,12 @@ public class UsuarioService {
         return usuarioRespository.findById(id).orElse(null);
     }
 
-    public Usuario postSave() {
-        Usuario prueba = new Usuario();
-        TipoUsuario tipo = new TipoUsuario();
-        tipo.setId(1);
-        prueba.setNombre("Santiago");
-        prueba.setContraseña("Hola");
-        prueba.setCelular("123");
-        prueba.setCorreo("123@gmaill.com");
-        prueba.setTipoUsuario(tipo);
-        prueba.setNumeroIdentidad(999);
-        System.out.println("Prueba 2");
+    public Usuario postSave(Usuario user) {
+        user.setContrasena(new BCryptPasswordEncoder().encode(user.getContrasena()));
+        return usuarioRespository.save(user);
+    }
 
-        return usuarioRespository.save(prueba);
+    public Optional<Usuario> getUserByEmail(String correo) {
+        return usuarioRespository.findOneByCorreo(correo);
     }
 }
