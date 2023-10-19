@@ -37,7 +37,7 @@ public class WebSecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/api/users/register")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/users/user-type")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/tour/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/api/resenas/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/api/resenas")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/login")).permitAll())
                 .authorizeHttpRequests()
                 .anyRequest().authenticated()
