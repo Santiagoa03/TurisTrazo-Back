@@ -11,7 +11,7 @@ import com.turistrazo.turistrazo.models.BarrioMedellin;
 import com.turistrazo.turistrazo.services.BarrioMedellinService;
 
 @RestController
-@RequestMapping("/api/barrio")
+@RequestMapping("/api/neighborhood")
 public class BarrioMedellinController {
 
     @Autowired
