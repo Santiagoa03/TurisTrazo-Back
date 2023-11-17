@@ -16,12 +16,11 @@ import lombok.Data;
 public class SitioInteres {
 
     @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "nombre_sitio")
-    private String tour;
+    private String nombreSitio;
 
     @JoinColumn(name = "barrio_medellin")
     @ManyToOne
@@ -29,5 +28,8 @@ public class SitioInteres {
 
     @Column(name = "descripcion")
     private String descripcion;
+
+    @Column(name = "imagen")
+    private String imagen;
 
 }
