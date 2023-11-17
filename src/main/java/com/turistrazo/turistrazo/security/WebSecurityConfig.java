@@ -38,6 +38,8 @@ public class WebSecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/api/users/user-type")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/users/verify/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/tour/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/api/images/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/api/interest-site/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/neighborhood/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/resenas")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/login")).permitAll())
