@@ -13,11 +13,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.turistrazo.turistrazo.dto.DataPasswordDTO;
 import com.turistrazo.turistrazo.dto.RegisterDataDTO;
 import com.turistrazo.turistrazo.models.TipoUsuario;
 import com.turistrazo.turistrazo.models.Usuario;
 import com.turistrazo.turistrazo.services.TipoUsuarioService;
 import com.turistrazo.turistrazo.services.UsuarioService;
+
+import jakarta.websocket.server.PathParam;
 
 @RestController
 @RequestMapping("/api/users")
@@ -32,6 +35,12 @@ public class UsuarioController {
     @PostMapping("/register")
     public Usuario postSave(@RequestBody RegisterDataDTO registerData) {
         return usuarioService.postSave(registerData);
+    }
+
+    @PostMapping("/reset")
+    public ResponseEntity<?> resetPassword(@RequestBody String email) {
+        usuarioService.resetPasswordn(email);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{userId}")
@@ -52,5 +61,11 @@ public class UsuarioController {
     @GetMapping("/user-type")
     public List<TipoUsuario> getAllUserType() {
         return tipoUsuarioService.getAll();
+    }
+
+    @PostMapping("/change-password")
+    public ResponseEntity<?> changePassword(@RequestBody DataPasswordDTO dataPassword) {
+        this.usuarioService.changePassword(dataPassword);
+        return ResponseEntity.ok().build();
     }
 }

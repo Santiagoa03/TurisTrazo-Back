@@ -43,6 +43,8 @@ public class SitioInteresController {
         sitioInteresS.setNombreSitio(sitioInteres.getNombreSitio());
         sitioInteresS.setBarrioMedellin(sitioInteres.getBarrioMedellin());
         sitioInteresS.setDescripcion(sitioInteres.getDescripcion());
+        sitioInteresS.setTemperatura(sitioInteres.getTemperatura());
+        sitioInteresS.setHorario(sitioInteres.getHorario());
         sitioInteresS.setImagen(imageUrl);
 
         return sitioInteresS;

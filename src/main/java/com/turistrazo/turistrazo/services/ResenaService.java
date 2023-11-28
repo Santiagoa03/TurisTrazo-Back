@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.turistrazo.turistrazo.models.ResenaCalificacion;
 import com.turistrazo.turistrazo.repositories.ResenaCalificacionRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class ResenaService {
 
@@ -18,7 +20,12 @@ public class ResenaService {
         return resenaCalificacionRepository.findAll();
     }
 
+    @Transactional
     public void saveResena(ResenaCalificacion resenaNew) {
         resenaCalificacionRepository.save(resenaNew);
+    }
+
+    public List<ResenaCalificacion> getAllByIdTour(Integer tourId) {
+        return resenaCalificacionRepository.findAllByTourId(tourId);
     }
 }

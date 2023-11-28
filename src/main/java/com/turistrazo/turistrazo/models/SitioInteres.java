@@ -32,4 +32,9 @@ public class SitioInteres {
     @Column(name = "imagen")
     private String imagen;
 
+    @Column(name = "temperatura")
+    private String temperatura;
+
+    @Column(name = "horario")
+    private String horario;
 }

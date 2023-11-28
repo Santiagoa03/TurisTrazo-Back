@@ -1,10 +1,5 @@
 package com.turistrazo.turistrazo.models;
 
-import java.time.LocalDateTime;
-import java.util.Date;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,11 +11,12 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "reserva_tour")
+@Table(name = "imagen")
 @Data
-public class ReservarTour {
+public class Imagen {
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
@@ -28,15 +24,11 @@ public class ReservarTour {
     @ManyToOne
     private Tour tour;
 
-    @Column(name = "fecha")
-    private Date fecha;
+    @JoinColumn(name = "sitio_turistico")
+    @ManyToOne
+    private SitioInteres sitioInteres;
 
-    @Column(name = "numero_personas")
-    private Integer numeroPersonas;
+    @Column(name = "imagen_url")
+    private String imagen;
 
-    @Column(name = "numero_contacto")
-    private String numeroContacto;
-
-    @Column(name = "precio_estimado")
-    private String precioEstimado;
 }
